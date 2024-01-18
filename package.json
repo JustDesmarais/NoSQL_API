@@ -1,0 +1,25 @@
+{
+  "name": "nosql_api",
+  "version": "1.0.0",
+  "description": "A NoSQL Social Media back end",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^7.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JustDesmarais/NoSQL_API.git"
+  },
+  
+  "author": "JustDesmarais",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JustDesmarais/NoSQL_API/issues"
+  },
+  "homepage": "https://github.com/JustDesmarais/NoSQL_API#readme"
+}
