@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-import reactionSchema from './Reaction';
+const reactionSchema = require('./Reaction');
 
 // function to format created date
 function createdDate (val) {
