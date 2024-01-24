@@ -30,7 +30,12 @@ module.exports = {
   // update user info
   async updateUser(req, res) {
     try {
-        const userUpdate = await User.findOneAndUpdate({ _id: req.params.userId}, req.body);
+        const userUpdate = await User.findOneAndUpdate({ _id: req.params.userId}, req.body, {new: true});
+
+        if (!userUpdate) {
+            res.status(404).json({message: 'No user with that ID'})
+        }
+
         res.status(200).json(userUpdate);
     } catch (err) {
         res.status(500).json(err);
@@ -75,7 +80,7 @@ module.exports = {
         if (user.deletedCount === 0) {
             return res.status(404).json({ message: 'No user with that ID'})
         }
-        
+
         res.status(200).json('User Deleted');
     } catch (err) {
         res.status(500).json(err);
