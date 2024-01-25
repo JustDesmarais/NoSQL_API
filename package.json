@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "cd utils && node seedData"
   },
   "dependencies": {
     "express": "^4.17.1",
@@ -15,11 +16,13 @@
     "type": "git",
     "url": "git+https://github.com/JustDesmarais/NoSQL_API.git"
   },
-  
   "author": "JustDesmarais",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/JustDesmarais/NoSQL_API/issues"
   },
-  "homepage": "https://github.com/JustDesmarais/NoSQL_API#readme"
+  "homepage": "https://github.com/JustDesmarais/NoSQL_API#readme",
+  "devDependencies": {
+    "@faker-js/faker": "^8.3.1"
+  }
 }
