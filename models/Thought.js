@@ -1,11 +1,9 @@
 const { Schema, model } = require('mongoose');
 const reactionSchema = require('./Reaction');
+const createdDate = require('../utils/helpers');
 
-// function to format created date
-function createdDate (val) {
-    if (!val) return val;
-    return (val.getMonth() + 1) + "/" + val.getDate() + "/" + val.getFullYear();
-  }
+
+
 
 const thoughtSchema = new Schema(
     {
@@ -21,20 +19,21 @@ const thoughtSchema = new Schema(
         },
         createdAt: {
             type: Date,
-            default: Date.now
+            default: Date.now,
+            get: createdDate
         },
         reactions: [reactionSchema],
     },
     {
         toJSON: {
             virtuals: true,
+            getters: true
         }
     }
 )
 
 // getter method to format the timestamp on query
-thoughtSchema.path('createdAt').get(createdDate);
-reactionSchema.path('createdAt').get(createdDate);
+
 
 // Create virtual property that counts the number of reactions on each thought
 thoughtSchema.virtual('reactionCount').get(function () {
